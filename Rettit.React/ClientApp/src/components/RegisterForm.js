@@ -34,7 +34,7 @@ export class RegisterForm extends Component {
     render() {
 		const { Username, Password} = this.state
 		return (
-			<div>
+			<div className="jumbotron">
 				<h4>Register</h4>
 				<form onSubmit={this.submitHandler}>
 					<div className="form-group">
