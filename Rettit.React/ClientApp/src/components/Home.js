@@ -1,32 +1,65 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export class Home extends Component {
-    static displayName = Home.name;
-    async postData(){
-        try {
-            let result = await fetch('https://localhost:44365/api/users', {
-                method: 'post',
-                mode: 'no-cors',
-                headers: {
-                    'accept': 'application/json',
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify({
-                    Username: 'Matthijs',
-                    Password: 'Abcd1234'
-                })
-            });
-            console.log('Result' + result)
-        } catch (e) {
-            console.log(e)
-        }
-    }
+	constructor(props) {
+		super(props)
 
-  render () {
-    return (
-        <div>
-            <button onClick={ this.postData }>Click here</button>
-      </div>
-    );
+		this.state = {
+			Username: '',
+			Password: '',
+		}
+	}
+
+	changeHandler = e => {
+		this.setState({ [e.target.name]: e.target.value })
+	}
+
+	submitHandler = e => {
+		e.preventDefault()
+		console.log(this.state)
+		axios.post('https://localhost:44365/api/users', this.state, {
+			mode: 'cors',
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Content-Type': 'application/json',
+			}
+		}).then(res => {
+			console.log(res);
+		}).catch(err => {
+			console.log(err.response);
+		});
+	}
+
+    render() {
+		const { Username, Password} = this.state
+		return (
+			<div>
+				<h4>Register</h4>
+				<form onSubmit={this.submitHandler}>
+					<div className="form-group">
+						<label>Username</label>
+						<input
+							className="form-control"
+							type="text"
+							name="Username"
+							value={Username}
+							onChange={this.changeHandler}
+						/>
+					</div>
+					<div className="form-group">
+						<label>Password</label>
+						<input
+							className="form-control"
+							type="password"
+							name="Password"
+							value={Password}
+							onChange={this.changeHandler}
+						/>
+					</div>
+					<button type="submit" className="btn btn-primary">Submit</button>
+				</form>
+			</div>
+        );
   }
 }
