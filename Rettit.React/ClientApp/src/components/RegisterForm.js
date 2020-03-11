@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export class Home extends Component {
+export class RegisterForm extends Component {
 	constructor(props) {
 		super(props)
 
