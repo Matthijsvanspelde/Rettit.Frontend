@@ -34,31 +34,33 @@ export class RegisterForm extends Component {
     render() {
 		const { Username, Password} = this.state
 		return (
-			<div className="jumbotron">
-				<h4>Register</h4>
-				<form onSubmit={this.submitHandler}>
-					<div className="form-group">
-						<label>Username</label>
-						<input
-							className="form-control"
-							type="text"
-							name="Username"
-							value={Username}
-							onChange={this.changeHandler}
-						/>
-					</div>
-					<div className="form-group">
-						<label>Password</label>
-						<input
-							className="form-control"
-							type="password"
-							name="Password"
-							value={Password}
-							onChange={this.changeHandler}
-						/>
-					</div>
-					<button type="submit" className="btn btn-primary">Submit</button>
-				</form>
+			<div className="card">
+				<h5 class="card-header">Register</h5>
+				<div class="card-body">
+					<form onSubmit={this.submitHandler}>
+						<div className="form-group">
+							<label>Username</label>
+							<input
+								className="form-control"
+								type="text"
+								name="Username"
+								value={Username}
+								onChange={this.changeHandler}
+							/>
+						</div>
+						<div className="form-group">
+							<label>Password</label>
+							<input
+								className="form-control"
+								type="password"
+								name="Password"
+								value={Password}
+								onChange={this.changeHandler}
+							/>
+						</div>
+						<button type="submit" className="btn btn-primary">Register</button>
+					</form>
+				</div>
 			</div>
         );
   }
