@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
-import { RegisterForm } from './components/RegisterForm';
+import { Register } from './components/Register';
+import { Login } from './components/Login';
+import { CreateSubForum } from './components/CreateSubForum';
 import './custom.css'
+import './components/Form.css';
 
 
 export default class App extends Component {
@@ -11,7 +14,9 @@ export default class App extends Component {
   render () {
     return (
         <Layout>
-            <Route exact path='/register' component={RegisterForm} />
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/Create' component={CreateSubForum} />
       </Layout>
     );
   }
