@@ -48,10 +48,10 @@ export class CreateSubForum extends Component {
 		return (
 			<div className='wrapper'>
 				<div className='form-wrapper'>
-					<h4>Create a subforum</h4>
+					<h4>Create your own community</h4>
 					<form onSubmit={this.handleSubmit} noValidate >
 						<div className='form-group'>
-							<label htmlFor="name">Name</label>
+							<label htmlFor="name">Community name</label>
 							<input className="form-control" type='text' name='name' autoComplete='off' onChange={this.handleChange} noValidate />
 						</div>
 						<div className='form-group'>
