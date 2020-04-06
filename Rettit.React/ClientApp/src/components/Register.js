@@ -60,7 +60,7 @@ export class Register extends Component {
 		event.preventDefault();
 		if (validateForm(this.state.errors.username) && validateForm(this.state.errors.password)) {
 			event.preventDefault()
-			axios.post('https://localhost:44365/api/users', this.state, {
+			axios.post('https://localhost:44365/api/register', this.state, {
 				mode: 'cors',
 				headers: {
 					'Access-Control-Allow-Origin': '*',

@@ -35,6 +35,7 @@ export class CreateSubForum extends Component {
 				headers: {
 					'Access-Control-Allow-Origin': '*',
 					'Content-Type': 'application/json',
+					'Authorization': 'Bearer ' + localStorage.getItem("token"),
 				}
 			}).then(res => {
 				console.log(res);
