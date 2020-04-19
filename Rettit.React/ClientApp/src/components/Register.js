@@ -34,13 +34,13 @@ export class Register extends Component {
 			case 'username':
 				errors.username =
 					value.length < 5
-						? 'Username must be 5 characters long!'
+						? 'Username must be more than 5 characters long!'
 						: '';
 				break;
 			case 'password':
 				errors.password =
 					value.length < 8
-						? 'Password must be 8 characters long!'
+						? 'Password must be more than 8 characters long!'
 						: '';
 				break;
 			default:

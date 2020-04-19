@@ -7,6 +7,7 @@ import { CreateSubForum } from './components/CreateSubForum';
 import { SubForumGeneralInformation } from './components/SubForumGeneralInformation';
 import './custom.css'
 import './components/Form.css';
+import './components/Popup.css';
 
 
 export default class App extends Component {

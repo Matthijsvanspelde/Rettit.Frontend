@@ -52,6 +52,7 @@ export class Login extends Component {
 			}).then(res => {
 				console.log(res);
 				localStorage.setItem("token", res.data.token);
+				localStorage.setItem("expiration", res.data.expiration)
 				this.props.history.push('/');
 			}).catch(err => {
 				if (err.response.status === 401) {
@@ -65,6 +66,7 @@ export class Login extends Component {
 
 	render() {
 		const { errors } = this.state;
+		const tokenExpiration = localStorage.getItem("expiration");
 		return (
 			<div className='wrapper'>
 				<div className='form-wrapper'>

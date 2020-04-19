@@ -1,10 +1,13 @@
 ﻿import React, { Component } from 'react';
+import { PostForm } from './PostForm';
+import { Posts } from './Posts';
 import axios from 'axios';
 
 export class SubForumGeneralInformation extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            SubForumId: null,
             name: null,
             about: null,
             rule1: null,
@@ -22,6 +25,7 @@ export class SubForumGeneralInformation extends Component {
             console.log(res.data.name);
             this.setState(
                 {
+                    SubForumId: res.data.id,
                     name: res.data.name,
                     about: res.data.about,
                     rule1: res.data.rule1,
@@ -38,15 +42,14 @@ export class SubForumGeneralInformation extends Component {
 	{
         return (
         <div>
-        <div className="jumbotron">
-            <h1 className="display-4">r/{this.state.name}</h1>
-            <p className="lead">{this.state.about}</p>
-            <p>Rules:</p>
-            <p>{this.state.rule1}</p>
-            <p>{this.state.rule2}</p>
-            <p>{this.state.rule3}</p>
-            <a className="btn btn-primary btn-lg" href="#" role="button">Post something...</a>
-            </div>
+            <div className="card text-center">
+                <div className="card-body">
+                    <h5 className="card-title">r/{this.state.name}</h5>
+                    <p className="card-text">{this.state.about}</p>
+                <PostForm SubForumId={this.state.SubForumId} />
+                </div>
+            </div><br />  
+            <Posts SubForumId={this.state.SubForumId} />
         </div>
         )
     }
