@@ -81,31 +81,46 @@ export class Register extends Component {
 
 	render() {
 		const { errors } = this.state;
-		return (
-			<div className='wrapper'>
-				<div className='form-wrapper'>
+		if (this.props.IsLoggedIn === false) {
+			return (
+				<div>
+					<div className="card mx-auto" style={{ maxWidth: 500 }}>
+					<div className="card-body">
 					<h4>Sign up</h4>
-					<p>Already got an account? <Link to="/login" >Sign in</Link></p>	
-					<span style={{ color: "red" }} className='error'>{errors.generalError}</span>
+					<p>Already got an account? <Link to="/login" >Sign in</Link></p>
+					<span className='error'>{errors.generalError}</span>
 					<form onSubmit={this.handleSubmit} noValidate >
 						<div className='form-group'>
 							<label htmlFor="username">Username</label>
-							<input className="form-control" type='text' name='username' autoComplete='off' onChange={this.handleChange} noValidate />
+							<input className="form-control" type='text' name='username' autoComplete='off' onChange={this.handleChange} noValidate /><br />
 							{errors.username.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.username} </span>}							
+								<div class="alert alert-primary" role="alert">
+									{errors.username}
+								</div>}
 						</div>
 						<div className='form-group'>
 							<label htmlFor="password">Password</label>
-							<input className="form-control" type='password' name='password' autoComplete='off' onChange={this.handleChange} noValidate />
+							<input className="form-control" type='password' name='password' autoComplete='off' onChange={this.handleChange} noValidate /><br />
 							{errors.password.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.password}</span>}
+								<div class="alert alert-primary" role="alert">
+									{errors.password}
+								</div>}
 						</div>
 						<div className='submit'>
 							<button className="btn btn-lg btn-primary btn-block">Create account</button>
 						</div>
 					</form>
+					</div>
+					</div>
 				</div>
-			</div>
-        );
+			);
+		} else {
+			return (
+				<div class="alert alert-primary" role="alert">
+					You are already logged in!
+				</div>
+			);
+		}
+		
   }
 }

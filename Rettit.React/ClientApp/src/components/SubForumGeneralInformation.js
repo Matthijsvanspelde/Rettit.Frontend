@@ -46,10 +46,10 @@ export class SubForumGeneralInformation extends Component {
                 <div className="card-body">
                     <h5 className="card-title">r/{this.state.name}</h5>
                     <p className="card-text">{this.state.about}</p>
-                <PostForm SubForumId={this.state.SubForumId} />
+                    <PostForm SubForumId={this.state.SubForumId} IsLoggedIn={this.props.IsLoggedIn}/>
                 </div>
-            </div><br />  
-            <Posts SubForumId={this.state.SubForumId} />
+                </div><br />
+                <Posts SubForumId={this.state.SubForumId}  />
         </div>
         )
     }

@@ -84,44 +84,51 @@ export class PostForm extends Component {
 
 	render() {
 		const { errors } = this.state;
-		if (this.state.isActive) {
-			return (
-				<div>
+		if (this.props.IsLoggedIn === true) {
+			if (this.state.isActive) {
+				return (
+					<div>
+						<div>
+							<button className="btn btn-primary" onClick={this.handleShow}>Post something...</button>
+						</div>
+						<div className="popup">
+							<div className='form-wrapper'>
+								<h4>Post something</h4>
+								<span style={{ color: "red" }} className='error'>{errors.generalError}</span>
+								<form onSubmit={this.handleSubmit} noValidate >
+									<div className='form-group'>
+										<label htmlFor="name">Title</label>
+										<input className="form-control" type='text' name='title' autoComplete='off' onChange={this.handleChange} noValidate />
+										{errors.title.length > 0 &&
+											<span style={{ color: "red" }} className='error'>{errors.title} </span>}
+									</div>
+									<div className='form-group'>
+										<label htmlFor="about">Message</label>
+										<textarea className="form-control" type='text' name='message' autoComplete='off' rows='10' onChange={this.handleChange} noValidate />
+										{errors.message.length > 0 &&
+											<span style={{ color: "red" }} className='error'>{errors.message} </span>}
+									</div>
+									<div className='submit'>
+										<button style={{ marginRight: "5px" }} className="btn btn-primary" onClick={this.handleHide}>Cancel</button>
+										<button className="btn btn-primary">Post</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				);
+			} else {
+				return (
 					<div>
 						<button className="btn btn-primary" onClick={this.handleShow}>Post something...</button>
 					</div>
-					<div className="popup">
-						<div className='form-wrapper'>
-							<h4>Post something</h4>
-							<span style={{ color: "red" }} className='error'>{errors.generalError}</span>
-							<form onSubmit={this.handleSubmit} noValidate >
-								<div className='form-group'>
-									<label htmlFor="name">Title</label>
-									<input className="form-control" type='text' name='title' autoComplete='off' onChange={this.handleChange} noValidate />
-									{errors.title.length > 0 &&
-										<span style={{ color: "red" }} className='error'>{errors.title} </span>}
-								</div>
-								<div className='form-group'>
-									<label htmlFor="about">Message</label>
-									<textarea className="form-control" type='text' name='message' autoComplete='off' rows='10' onChange={this.handleChange} noValidate />
-									{errors.message.length > 0 &&
-										<span style={{ color: "red" }} className='error'>{errors.message} </span>}
-								</div>
-								<div className='submit'>
-									<button style={{ marginRight: "5px" }} className="btn btn-primary" onClick={this.handleHide}>Cancel</button>
-									<button className="btn btn-primary">Post</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			);
+				);
+			}
 		} else {
-			return (
-				<div>
-					<button className="btn btn-primary" onClick={this.handleShow}>Post something...</button>
-				</div>
-			);
-		}		
+		return (
+			<div className="alert alert-primary" role="alert">You have to be signed in to post on this subcommunity!</div>
+		);
+		}
+				
 	}
 }

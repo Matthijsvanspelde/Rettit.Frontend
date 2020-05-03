@@ -26,20 +26,39 @@ export class Posts extends Component {
     render() {
         return (
         <div>
-            {this.state.posts.map(post => (
-                <div key={post.id}>
-                <div className="card">
-                    <div className="card-header">
-                        {post.title}
-                    </div>
-                    <div className="card-body">
-                        <p>{post.message}</p>
-                        <cite title="Source Title">u/{post.username}</cite>
-                    </div>
-                </div><br />
+            {this.state.posts.map(function (post) {
+
+                var comments = post.comments.map(function (comment) {
+                    return (
+                        <li>/u: {comment.message}</li>
+                    )
+                });
+
+                return (
+                <div>
+                    <div className="card">
+                        <div className="card-header">
+                            
+                            <cite title="Source Title">Posted by: u/{post.username}</cite>
+                        </div>
+                        <div className="card-body">
+                            <h3>{post.title}</h3>
+                            <p>{post.message}</p>                              
+                        </div>
+                        <div className="card-body">
+                            <p>{comments}</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <form>
+                                <input type="text" class="form-control" id="comment" placeholder="Comment..."></input>
+                            </form>
+                        </div>
+                    </div><br />
+                </div>
+                )
+            })
+            }
             </div>
-            ))}
-        </div>
         )
     }
 }

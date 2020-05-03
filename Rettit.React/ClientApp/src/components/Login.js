@@ -21,7 +21,7 @@ export class Login extends Component {
 				username: '',
 				password: '',
 				generalError: '',
-			}
+			}			
 		};
 	}
 
@@ -66,13 +66,14 @@ export class Login extends Component {
 
 	render() {
 		const { errors } = this.state;
-		const tokenExpiration = localStorage.getItem("expiration");
-		return (
-			<div className='wrapper'>
-				<div className='form-wrapper'>
+		if (this.props.IsLoggedIn === false) {
+			return (
+				<div>
+					<div className="card mx-auto" style={{ maxWidth: 500 }} >
+					<div className="card-body">
 					<h4>Log in</h4>
 					<p>New to Rettit? <Link to="/register" >Sign up</Link></p>
-					<span style={{ color: "red" }} className='error'>{errors.generalError}</span>
+					<span className='error'>{errors.generalError}</span>
 					<form onSubmit={this.handleSubmit} noValidate >
 						<div className='form-group'>
 							<label htmlFor="username">Username</label>
@@ -90,8 +91,17 @@ export class Login extends Component {
 							<button className="btn btn-lg btn-primary btn-block">Log in</button>
 						</div>
 					</form>
+					</div>
+					</div>
 				</div>
-			</div>
-		);
+			);
+        } else {
+			return (
+				<div class="alert alert-primary" role="alert">
+					You are already logged in!
+				</div>
+			);
+        }
+		
 	}
 }

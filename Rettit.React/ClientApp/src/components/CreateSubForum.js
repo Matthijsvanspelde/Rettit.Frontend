@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 import axios from 'axios';
+import * as jwtDecode from 'jwt-decode';
 
 const validateForm = (errors) => {
 	let valid = true;
@@ -101,9 +102,11 @@ export class CreateSubForum extends Component {
 
 	render() {
 		const { errors } = this.state;
-		return (
-			<div className='wrapper'>
-				<div className='form-wrapper'>
+		if (this.props.IsLoggedIn === true) {
+			return (
+				<div>
+					<div className="card mx-auto" style={{ maxWidth: 600 }}>
+					<div className="card-body">
 					<h4>Create your own community</h4>
 					<span style={{ color: "red" }} className='error'>{errors.generalError}</span>
 					<form onSubmit={this.handleSubmit} noValidate >
@@ -111,38 +114,47 @@ export class CreateSubForum extends Component {
 							<label htmlFor="name">Community name</label>
 							<input className="form-control" type='text' name='name' autoComplete='off' onChange={this.handleChange} noValidate />
 							{errors.name.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.name} </span>}	
+								<span style={{ color: "red" }} className='error'>{errors.name} </span>}
 						</div>
 						<div className='form-group'>
 							<label htmlFor="about">About</label>
 							<textarea className="form-control" type='text' name='about' autoComplete='off' rows='3' onChange={this.handleChange} noValidate />
 							{errors.about.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.about} </span>}	
+								<span style={{ color: "red" }} className='error'>{errors.about} </span>}
 						</div>
 						<div className='form-group'>
 							<label htmlFor="rule1">Rule 1</label>
 							<input className="form-control" type='text' name='rule1' autoComplete='off' onChange={this.handleChange} noValidate />
 							{errors.rule1.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.rule1} </span>}	
+								<span style={{ color: "red" }} className='error'>{errors.rule1} </span>}
 						</div>
 						<div className='form-group'>
 							<label htmlFor="rule2">Rule 2</label>
 							<input className="form-control" type='text' name='rule2' autoComplete='off' onChange={this.handleChange} noValidate />
 							{errors.rule2.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.rule2} </span>}	
+								<span style={{ color: "red" }} className='error'>{errors.rule2} </span>}
 						</div>
 						<div className='form-group'>
 							<label htmlFor="rule3">Rule 3</label>
 							<input className="form-control" type='text' name='rule3' autoComplete='off' onChange={this.handleChange} noValidate />
 							{errors.rule3.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.rule3} </span>}	
+								<span style={{ color: "red" }} className='error'>{errors.rule3} </span>}
 						</div>
 						<div className='submit'>
 							<button className="btn btn-lg btn-primary btn-block">Create</button>
 						</div>
 					</form>
+					</div>
+					</div>
 				</div>
-			</div>
-		);
+			);
+        } else {
+			return (
+				<div class="alert alert-primary" role="alert">
+					You have to be signed in to create a subcommunity!
+				</div>
+			);
+        }
+		
 	}
 }
