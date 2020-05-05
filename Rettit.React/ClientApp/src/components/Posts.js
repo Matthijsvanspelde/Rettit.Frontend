@@ -30,9 +30,13 @@ export class Posts extends Component {
 
                 var comments = post.comments.map(function (comment) {
                     return (
-                        <li>/u: {comment.message}</li>
+                        <div class="alert alert-secondary" role="alert">
+                            <i>u/{comment.user.username} said:</i> {comment.message}
+                        </div>
                     )
                 });
+
+
 
                 return (
                 <div>
@@ -45,13 +49,14 @@ export class Posts extends Component {
                             <h3>{post.title}</h3>
                             <p>{post.message}</p>                              
                         </div>
-                        <div className="card-body">
-                            <p>{comments}</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            <form>
-                                <input type="text" class="form-control" id="comment" placeholder="Comment..."></input>
-                            </form>
+                            <div class="card-footer text-muted">
+                                <p>{comments}</p>
+                                <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="What are your thoughts?" aria-describedby="button-addon2"/>
+                                <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="button-addon2">Comment</button>
+                                </div>
+                            </div>
                         </div>
                     </div><br />
                 </div>

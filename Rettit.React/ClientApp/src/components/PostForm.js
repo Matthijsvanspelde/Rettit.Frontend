@@ -92,7 +92,7 @@ export class PostForm extends Component {
 							<button className="btn btn-primary" onClick={this.handleShow}>Post something...</button>
 						</div>
 						<div className="popup">
-							<div className='form-wrapper'>
+							<div className='form-wrapper' style={{ maxWidth: 700 }}>
 								<h4>Post something</h4>
 								<span style={{ color: "red" }} className='error'>{errors.generalError}</span>
 								<form onSubmit={this.handleSubmit} noValidate >
