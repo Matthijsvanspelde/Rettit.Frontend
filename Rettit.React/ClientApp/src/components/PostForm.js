@@ -51,7 +51,7 @@ export class PostForm extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 		event.preventDefault()
-		axios.post('https://localhost:44365/api/posts', { 'Title': this.state.title, 'Message': this.state.message, 'SubForumId': this.props.SubForumId}, {
+		axios.post('https://rettitapi.azurewebsites.net/api/posts', { 'Title': this.state.title, 'Message': this.state.message, 'SubForumId': this.props.SubForumId}, {
 			mode: 'cors',
 			headers: {
 				'Access-Control-Allow-Origin': '*',
