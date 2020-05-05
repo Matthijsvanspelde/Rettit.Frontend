@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Router } from 'react-router';
 import { Register } from './components/Register';
 import { Login } from './components/Login';
+import { Search } from './components/Search';
 import { CreateSubForum } from './components/CreateSubForum';
 import { SubForumGeneralInformation } from './components/SubForumGeneralInformation';
 import './custom.css'
@@ -39,6 +40,7 @@ export default class App extends Component {
 		this.IsLoggedIn();
         return (
 			<Layout>
+				<Route exact path="/search" render={(props) => <Search IsLoggedIn={this.state.IsLoggedIn} {...props} />} />
 				<Route exact path="/login" render={(props) => <Login IsLoggedIn={this.state.IsLoggedIn} {...props} />} />
 				<Route exact path="/register" render={(props) => <Register IsLoggedIn={this.state.IsLoggedIn} {...props} />} />
 				<Route exact path="/Create" render={(props) => <CreateSubForum IsLoggedIn={this.state.IsLoggedIn} {...props} />} />

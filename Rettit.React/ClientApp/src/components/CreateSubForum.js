@@ -105,40 +105,52 @@ export class CreateSubForum extends Component {
 		if (this.props.IsLoggedIn === true) {
 			return (
 				<div>
-					<div className="card mx-auto" style={{ maxWidth: 600 }}>
+					<div className="card mx-auto" style={{ maxWidth: 800 }}>
 					<div className="card-body">
-					<h4>Create your own community</h4>
+					<h4>Create a community</h4>
 					<span style={{ color: "red" }} className='error'>{errors.generalError}</span>
 					<form onSubmit={this.handleSubmit} noValidate >
 						<div className='form-group'>
-							<label htmlFor="name">Community name</label>
-							<input className="form-control" type='text' name='name' autoComplete='off' onChange={this.handleChange} noValidate />
+									<label htmlFor="name">Name</label><br />
+									<label style={{ fontSize: 12, color: '#666666' }} htmlFor="name">Community names including capitalization cannot be changed.</label>
+							<input className="form-control" type='text' name='name' autoComplete='off' onChange={this.handleChange} noValidate /><br/>
 							{errors.name.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.name} </span>}
+										<div class="alert alert-primary" role="alert">
+											{errors.name}
+										</div>}
 						</div>
 						<div className='form-group'>
-							<label htmlFor="about">About</label>
-							<textarea className="form-control" type='text' name='about' autoComplete='off' rows='3' onChange={this.handleChange} noValidate />
+									<label htmlFor="name">Discription</label><br/>
+									<label style={{ fontSize: 12, color: '#666666' }} htmlFor="name">This is how new members come to understand your community.</label>
+							<textarea className="form-control" type='text' name='about' autoComplete='off' rows='3' onChange={this.handleChange} noValidate /><br/>
 							{errors.about.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.about} </span>}
+										<div class="alert alert-primary" role="alert">
+											{errors.about}
+										</div>}
 						</div>
 						<div className='form-group'>
-							<label htmlFor="rule1">Rule 1</label>
-							<input className="form-control" type='text' name='rule1' autoComplete='off' onChange={this.handleChange} noValidate />
+							<label htmlFor="rule1">Rule #1</label>
+									<input className="form-control" type='text' name='rule1' autoComplete='off' onChange={this.handleChange} noValidate /><br />
 							{errors.rule1.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.rule1} </span>}
+										<div class="alert alert-primary" role="alert">
+											{errors.rule1}
+										</div>}
 						</div>
 						<div className='form-group'>
-							<label htmlFor="rule2">Rule 2</label>
-							<input className="form-control" type='text' name='rule2' autoComplete='off' onChange={this.handleChange} noValidate />
+							<label htmlFor="rule2">Rule #2</label>
+									<input className="form-control" type='text' name='rule2' autoComplete='off' onChange={this.handleChange} noValidate /><br />
 							{errors.rule2.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.rule2} </span>}
+										<div class="alert alert-primary" role="alert">
+											{errors.rule2}
+										</div>}
 						</div>
 						<div className='form-group'>
-							<label htmlFor="rule3">Rule 3</label>
-							<input className="form-control" type='text' name='rule3' autoComplete='off' onChange={this.handleChange} noValidate />
+							<label htmlFor="rule3">Rule #3</label>
+									<input className="form-control" type='text' name='rule3' autoComplete='off' onChange={this.handleChange} noValidate /><br />
 							{errors.rule3.length > 0 &&
-								<span style={{ color: "red" }} className='error'>{errors.rule3} </span>}
+										<div class="alert alert-primary" role="alert">
+											{errors.rule3}
+										</div>}
 						</div>
 						<div className='submit'>
 							<button className="btn btn-lg btn-primary btn-block">Create</button>

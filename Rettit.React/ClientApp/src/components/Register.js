@@ -88,6 +88,7 @@ export class Register extends Component {
 					<div className="card-body">
 					<h4>Sign up</h4>
 					<p>Already got an account? <Link to="/login" >Sign in</Link></p>
+					<p>By having a Rettit account, you can join, vote, and comment on all your favorite Rettit content.</p>
 					<span className='error'>{errors.generalError}</span>
 					<form onSubmit={this.handleSubmit} noValidate >
 						<div className='form-group'>
