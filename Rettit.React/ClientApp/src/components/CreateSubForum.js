@@ -82,7 +82,6 @@ export class CreateSubForum extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-			event.preventDefault()
 			axios.post('https://rettitapi.azurewebsites.net/api/SubForums', this.state, {
 				mode: 'cors',
 				headers: {

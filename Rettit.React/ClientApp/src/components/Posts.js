@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react';
+import { CommentForm } from './CommentForm';
 import axios from 'axios';
 
 export class Posts extends Component {
@@ -23,9 +24,11 @@ export class Posts extends Component {
         }       
     }
 
+
     render() {
         return (
-        <div>
+            <div>
+                
             {this.state.posts.map(function (post) {
 
                 var comments = post.comments.map(function (comment) {
@@ -51,12 +54,7 @@ export class Posts extends Component {
                         </div>
                             <div class="card-footer text-muted">
                                 <p>{comments}</p>
-                                <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="What are your thoughts?" aria-describedby="button-addon2"/>
-                                <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" id="button-addon2">Comment</button>
-                                </div>
-                            </div>
+                                <CommentForm PostId={post.id} />
                         </div>
                     </div><br />
                 </div>
