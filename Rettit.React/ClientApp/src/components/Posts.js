@@ -13,7 +13,7 @@ export class Posts extends Component {
 
     componentDidUpdate() {
         if (this.props.SubForumId !== this.state.id) {           
-            axios.get('https://rettit.azurewebsites.net/api/Posts/' + this.props.SubForumId)
+            axios.get('https://rettitapi.azurewebsites.net/api/Posts/' + this.props.SubForumId)
                 .then(res => {
                     console.log(res.data)
                     this.setState({ posts: res.data })

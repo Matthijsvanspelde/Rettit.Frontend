@@ -19,7 +19,7 @@ export class SubForumGeneralInformation extends Component {
     componentDidMount() {       
         const { match } = this.props
         const id = match.params.id
-        axios.get('https://rettit.azurewebsites.net/api/SubForums/' + id)
+        axios.get('https://rettitapi.azurewebsites.net/api/SubForums/' + id)
         .then(res => {
             console.log(res);
             console.log(res.data.name);

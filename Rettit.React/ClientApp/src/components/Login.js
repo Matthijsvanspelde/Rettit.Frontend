@@ -43,7 +43,7 @@ export class Login extends Component {
 		event.preventDefault();
 		if (validateForm(this.state.errors.username) && validateForm(this.state.errors.password)) {
 			event.preventDefault()
-			axios.post('https://rettit.azurewebsites.net/api/authentication', this.state, {
+			axios.post('https://rettitapi.azurewebsites.net/api/authentication', this.state, {
 				mode: 'cors',
 				headers: {
 					'Access-Control-Allow-Origin': '*',

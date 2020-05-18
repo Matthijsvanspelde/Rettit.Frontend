@@ -14,7 +14,7 @@ export class CommentForm extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://rettit.azurewebsites.net/api/comment', { 'message': this.state.message, 'PostId': this.props.PostId }, {
+        axios.post('https://rettitapi.azurewebsites.net/api/comment', { 'message': this.state.message, 'PostId': this.props.PostId }, {
             mode: 'cors',
             headers: {
                 'Access-Control-Allow-Origin': '*',
