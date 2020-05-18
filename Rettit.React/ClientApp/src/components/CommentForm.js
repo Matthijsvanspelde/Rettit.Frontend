@@ -5,16 +5,16 @@ export class CommentForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            comment: null,
+            message: null,
             postId: null,
             errors: {
-                comment: '',
+                message: '',
             }
         };
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://rettitapi.azurewebsites.net/api/Comment', this.state, this.props, {
+        axios.post('https://rettit.azurewebsites.net/api/comment', { 'message': this.state.message, 'PostId': this.props.PostId }, {
             mode: 'cors',
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -25,7 +25,7 @@ export class CommentForm extends Component {
             console.log(res);
         }).catch(err => {
             console.log(err);
-        });		
+        });
     }
 
     handleChange = (event) => {
@@ -35,7 +35,7 @@ export class CommentForm extends Component {
 
         switch (name) {
             case 'comment':
-                errors.comment =
+                errors.message =
                     value.length < 5
                         ? 'Comment must be longer than 5 characters!'
                         : '';
@@ -51,12 +51,12 @@ export class CommentForm extends Component {
         return (
             <form onSubmit={this.handleSubmit} noValidate>
                 <div className="input-group mb-3">
-                    <input className="form-control" type='text' placeholder='What are your thoughts?' name='query' onChange={this.handleChange} autoComplete='off' noValidate />
+                    <input className="form-control" type='text' placeholder='What are your thoughts?' name='message' onChange={this.handleChange} autoComplete='off' noValidate />
                     <div className='submit input-group-append'>
                         <button className="btn btn-primary">Comment</button>
                     </div>
-                    {this.state.errors.comment.length > 0 &&
-                        <span style={{ color: "red" }} className='error'>{this.state.errors.comment} </span>}
+                    {this.state.errors.message.length > 0 &&
+                        <span style={{ color: "red" }} className='error'>{this.state.errors.message} </span>}
                 </div>
             </form>
         )

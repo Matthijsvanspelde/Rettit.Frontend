@@ -13,7 +13,7 @@ export class Posts extends Component {
 
     componentDidUpdate() {
         if (this.props.SubForumId !== this.state.id) {           
-            axios.get('https://rettitapi.azurewebsites.net/api/Posts/' + this.props.SubForumId)
+            axios.get('https://rettit.azurewebsites.net/api/Posts/' + this.props.SubForumId)
                 .then(res => {
                     console.log(res.data)
                     this.setState({ posts: res.data })
@@ -33,7 +33,7 @@ export class Posts extends Component {
 
                 var comments = post.comments.map(function (comment) {
                     return (
-                        <div class="alert alert-secondary" role="alert">
+                        <div className="alert alert-secondary" role="alert" key={comment.id}>
                             <i>u/{comment.user.username} said:</i> {comment.message}
                         </div>
                     )
@@ -42,7 +42,7 @@ export class Posts extends Component {
 
 
                 return (
-                <div>
+                    <div key={post.id}>
                     <div className="card">
                         <div className="card-header">
                             
@@ -52,8 +52,8 @@ export class Posts extends Component {
                             <h3>{post.title}</h3>
                             <p>{post.message}</p>                              
                         </div>
-                            <div class="card-footer text-muted">
-                                <p>{comments}</p>
+                            <div className="card-footer text-muted">
+                                {comments}
                                 <CommentForm PostId={post.id} />
                         </div>
                     </div><br />

@@ -60,7 +60,7 @@ export class Register extends Component {
 		event.preventDefault();
 		if (validateForm(this.state.errors.username) && validateForm(this.state.errors.password)) {
 			event.preventDefault()
-			axios.post('https://rettitapi.azurewebsites.net/api/register', this.state, {
+			axios.post('https://rettit.azurewebsites.net/api/register', this.state, {
 				mode: 'cors',
 				headers: {
 					'Access-Control-Allow-Origin': '*',
