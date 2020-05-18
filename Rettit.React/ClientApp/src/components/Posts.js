@@ -33,7 +33,7 @@ export class Posts extends Component {
 
                 var comments = post.comments.map(function (comment) {
                     return (
-                        <div className="alert alert-secondary" role="alert" key={comment.id}>
+                        <div className="alert alert-secondary" role="alert">
                             <i>u/{comment.user.username} said:</i> {comment.message}
                         </div>
                     )
@@ -42,7 +42,7 @@ export class Posts extends Component {
 
 
                 return (
-                    <div key={post.id}>
+                    <div>
                     <div className="card">
                         <div className="card-header">
                             
