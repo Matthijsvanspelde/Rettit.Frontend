@@ -1,6 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { PostForm } from './PostForm';
 import { Posts } from './Posts';
+import { Follow } from './Follow';
 import axios from 'axios';
 
 export class SubForumGeneralInformation extends Component {
@@ -45,11 +46,12 @@ export class SubForumGeneralInformation extends Component {
             <div className="card text-center">
                 <div className="card-body">
                     <h5 className="card-title">r/{this.state.name}</h5>
-                    <p className="card-text">{this.state.about}</p>
+                        <p className="card-text">{this.state.about}</p>
+                        <Follow SubForumId={this.state.SubForumId} IsLoggedIn={this.props.IsLoggedIn}/>
                     <PostForm SubForumId={this.state.SubForumId} IsLoggedIn={this.props.IsLoggedIn}/>
                 </div>
                 </div><br />
-                <Posts SubForumId={this.state.SubForumId}  />
+                <Posts SubForumId={this.state.SubForumId} IsLoggedIn={this.props.IsLoggedIn}/>
         </div>
         )
     }

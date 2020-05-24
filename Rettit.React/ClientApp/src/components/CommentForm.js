@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react';
+import { Posts } from './Posts';
 import axios from 'axios';
 
 export class CommentForm extends Component {

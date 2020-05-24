@@ -89,7 +89,7 @@ export class PostForm extends Component {
 				return (
 					<div>
 						<div>
-							<button className="btn btn-primary" onClick={this.handleShow}>Post something...</button>
+							<button className="btn btn-primary" onClick={this.handleShow}>Post something</button>
 						</div>
 						<div className="popup">
 							<div className='form-wrapper' style={{ maxWidth: 700 }}>
@@ -120,7 +120,7 @@ export class PostForm extends Component {
 			} else {
 				return (
 					<div>
-						<button className="btn btn-primary" onClick={this.handleShow}>Post something...</button>
+						<button className="btn btn-primary" onClick={this.handleShow}>Post something</button>
 					</div>
 				);
 			}

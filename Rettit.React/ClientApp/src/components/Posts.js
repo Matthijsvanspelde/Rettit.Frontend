@@ -26,42 +26,79 @@ export class Posts extends Component {
 
 
     render() {
-        return (
-            <div>
-                
-            {this.state.posts.map(function (post) {
+        if (this.props.IsLoggedIn) {
+            return (
+                <div>
 
-                var comments = post.comments.map(function (comment) {
-                    return (
-                        <div className="alert alert-secondary" role="alert">
-                            <i>u/{comment.user.username} said:</i> {comment.message}
-                        </div>
-                    )
-                });
+                    {this.state.posts.map(function (post) {
 
+                        var comments = post.comments.map(function (comment) {
+                            return (
+                                <div className="alert alert-secondary" role="alert" key={comment.id}>
+                                    <i>u/{comment.user.username} said:</i> {comment.message}
+                                </div>
+                            )
+                        });
+                        return (
 
+                            <div key={post.id}>
+                                <div className="card">
+                                    <div className="card-header">
 
-                return (
-                    <div>
-                    <div className="card">
-                        <div className="card-header">
-                            
-                            <cite title="Source Title">Posted by: u/{post.username}</cite>
-                        </div>
-                        <div className="card-body">
-                            <h3>{post.title}</h3>
-                            <p>{post.message}</p>                              
-                        </div>
-                            <div className="card-footer text-muted">
-                                {comments}
-                                <CommentForm PostId={post.id} />
-                        </div>
-                    </div><br />
+                                        <cite title="Source Title">Posted by: u/{post.username}</cite>
+                                    </div>
+                                    <div className="card-body">
+                                        <h3>{post.title}</h3>
+                                        <p>{post.message}</p>
+                                    </div>
+                                    <div className="card-footer text-muted">
+                                        {comments}
+                                        <CommentForm PostId={post.id} />
+                                    </div>
+                                </div><br />
+                            </div>
+                        )
+                    })
+                    }
                 </div>
-                )
-            })
-            }
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div>
+
+                    {this.state.posts.map(function (post) {
+
+                        var comments = post.comments.map(function (comment) {
+                            return (
+                                <div className="alert alert-secondary" role="alert" key={comment.id}>
+                                    <i>u/{comment.user.username} said:</i> {comment.message}
+                                </div>
+                            )
+                        });
+                        return (
+
+                            <div key={post.id}>
+                                <div className="card">
+                                    <div className="card-header">
+
+                                        <cite title="Source Title">Posted by: u/{post.username}</cite>
+                                    </div>
+                                    <div className="card-body">
+                                        <h3>{post.title}</h3>
+                                        <p>{post.message}</p>
+                                    </div>
+                                    <div className="card-footer text-muted">
+                                        {comments}
+                                        <p>Sign in to join the discussion</p>
+                                    </div>
+                                </div><br />
+                            </div>
+                        )
+                    })
+                    }
+                </div>
+            )
+        }
+
     }
 }

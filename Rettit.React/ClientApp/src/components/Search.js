@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export class Search extends Component {
@@ -43,7 +44,7 @@ export class Search extends Component {
                         return <i key={i}>
                             <div className="card text-center">
                                 <div className="card-body">
-                                    <a href={'/r/' + searchResult.name} className="card-title text-dark" style={{ fontSize: 24 }}>r/{searchResult.name}</a>
+                                    <Link style={{ fontSize: 24 }} className="card-title text-dark" to={'/r/' + searchResult.name}>r/{searchResult.name}</Link>
                                     <p className="card-text">{searchResult.about}</p>
                                 </div>
                             </div><br />
