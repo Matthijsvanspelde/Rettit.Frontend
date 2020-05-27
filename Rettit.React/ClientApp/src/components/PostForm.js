@@ -88,8 +88,8 @@ export class PostForm extends Component {
 			if (this.state.isActive) {
 				return (
 					<div>
-						<div>
-							<button className="btn btn-primary" onClick={this.handleShow}>Post something</button>
+						<div className="action-btn">
+							<button className="btn btn-light" onClick={this.handleShow}>Post something</button>
 						</div>
 						<div className="popup">
 							<div className='form-wrapper' style={{ maxWidth: 700 }}>
@@ -119,8 +119,8 @@ export class PostForm extends Component {
 				);
 			} else {
 				return (
-					<div>
-						<button className="btn btn-primary" onClick={this.handleShow}>Post something</button>
+					<div className="action-btn">
+						<button className="btn btn-light" onClick={this.handleShow}>Post something</button>
 					</div>
 				);
 			}

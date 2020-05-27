@@ -103,8 +103,8 @@ export class CreateSubForum extends Component {
 		const { errors } = this.state;
 		if (this.props.IsLoggedIn === true) {
 			return (
-				<div>
-					<div className="card mx-auto" style={{ maxWidth: 800 }}>
+				<div style={{ paddingBottom: 24 }}>
+					<div className="card mx-auto" style={{ maxWidth: 820 }}>
 					<div className="card-body">
 					<h4>Create a community</h4>
 					<span style={{ color: "red" }} className='error'>{errors.generalError}</span>
@@ -152,7 +152,7 @@ export class CreateSubForum extends Component {
 										</div>}
 						</div>
 						<div className='submit'>
-							<button className="btn btn-lg btn-primary btn-block">Create</button>
+							<button className="btn btn-primary">Create</button>
 						</div>
 					</form>
 					</div>

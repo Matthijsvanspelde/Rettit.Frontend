@@ -6,3 +6,23 @@ a {
 code {
   color: #E01A76;
 }
+
+body {
+    background-color: #f5f9ff;
+}
+
+.navbar-expand-sm {
+background-color: white;
+}
+
+.subaction-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.action-btn {
+    height: 38px;
+    margin: 0 5px 0 5px;
+}
