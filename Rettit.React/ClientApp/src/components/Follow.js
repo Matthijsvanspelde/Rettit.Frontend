@@ -12,7 +12,7 @@ export class Follow extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://localhost:44365/api/Follow', { 'SubForumId': this.props.SubForumId }, {
+        axios.post('https://rettitapi.azurewebsites.net/api/Follow', { 'SubForumId': this.props.SubForumId }, {
             mode: 'cors',
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -28,7 +28,7 @@ export class Follow extends Component {
 
     handleSubmitUnsubscribe = (event) => {
         event.preventDefault();
-        axios.delete('https://localhost:44365/api/Follow/' + this.props.SubForumId, {
+        axios.delete('https://rettitapi.azurewebsites.net/api/Follow/' + this.props.SubForumId, {
             mode: 'cors',
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -43,7 +43,7 @@ export class Follow extends Component {
     }
 
     componentDidUpdate() {
-        axios.get('https://localhost:44365/api/Follow/' + this.props.SubForumId,
+        axios.get('https://rettitapi.azurewebsites.net/api/Follow/' + this.props.SubForumId,
         {
             mode: 'cors',
             headers: {
