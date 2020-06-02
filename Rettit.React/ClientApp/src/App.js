@@ -10,6 +10,8 @@ import './components/Form.css';
 import './components/Popup.css';
 import { Layout } from './components/Layout';
 import * as jwtDecode from 'jwt-decode';
+import { HomePosts } from './components/HomePosts';
+import { HomeHeader } from './components/HomeHeader';
 
 export default class App extends Component {
     static displayName = App.name;
@@ -40,6 +42,8 @@ export default class App extends Component {
 		this.IsLoggedIn();
         return (
 			<Layout>
+				<Route exact path="/" render={(props) => <HomeHeader {...props} />} />
+				<Route exact path="/" render={(props) => <HomePosts IsLoggedIn={this.state.IsLoggedIn} {...props} />} />
 				<Route exact path="/search" render={(props) => <Search IsLoggedIn={this.state.IsLoggedIn} {...props} />} />
 				<Route exact path="/login" render={(props) => <Login IsLoggedIn={this.state.IsLoggedIn} {...props} />} />
 				<Route exact path="/register" render={(props) => <Register IsLoggedIn={this.state.IsLoggedIn} {...props} />} />

@@ -46,4 +46,6 @@
     </ItemGroup>
   </Target>
 
+  <ProjectExtensions><VisualStudio><UserProperties clientapp_4public_4manifest_1json__JsonSchema="https://json.schemastore.org/function" /></VisualStudio></ProjectExtensions>
+
 </Project>

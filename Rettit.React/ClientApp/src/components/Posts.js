@@ -45,7 +45,7 @@ export class Posts extends Component {
                                 <div className="card">
                                     <div className="card-header">
 
-                                        <cite title="Source Title">Posted by: u/{post.username}</cite>
+                                        <cite title="Source Title">Posted by u/{post.username}</cite>
                                     </div>
                                     <div className="card-body">
                                         <h3>{post.title}</h3>
