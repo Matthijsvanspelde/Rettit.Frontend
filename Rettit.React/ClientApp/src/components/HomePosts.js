@@ -12,7 +12,7 @@ export class HomePosts extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://rettitapi.azurewebsites.net/api/Home',
+        axios.get('https://localhost:44365/api/Home',
             {
                 mode: 'cors',
                 headers: {
@@ -39,7 +39,11 @@ export class HomePosts extends Component {
 
                             <div className="card" key={`Key${index}`}>
                                 <div className="card-header">
+
                                     <cite title="Source Title">r/{follow.subForum.name}</cite>
+
+
+
                                 </div>
 
                                 {follow.subForum.posts.map((post, i) =>
