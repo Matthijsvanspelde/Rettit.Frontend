@@ -12,7 +12,7 @@ export class HomePosts extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://rettitapi.azurewebsites.net/api/Home',
+        axios.get('https://localhost:44365/api/Home',
             {
                 mode: 'cors',
                 headers: {

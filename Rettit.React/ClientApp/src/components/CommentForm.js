@@ -26,7 +26,7 @@ export class CommentForm extends Component {
 
 	postCall = () => {
 		return axios.post(
-			'https://rettitapi.azurewebsites.net/api/comment',
+			'https://localhost:44365/api/comment',
 			{ message: this.state.message, PostId: this.props.PostId },
 			{
 				mode: 'cors',

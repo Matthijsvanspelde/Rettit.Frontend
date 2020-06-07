@@ -19,7 +19,7 @@ export class Search extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.get('https://rettitapi.azurewebsites.net/api/search/' + this.state.query)
+        axios.get('https://localhost:44365/api/search/' + this.state.query)
             .then(res => {
                 this.setState({ results: res.data })
             }).catch(err => {
