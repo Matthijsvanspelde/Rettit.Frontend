@@ -1,0 +1,12 @@
+﻿.wrapper {    
+    width: 100%;
+}
+
+.form-wrapper {
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    text-align: left;
+}
